@@ -73,3 +73,14 @@ A personal website is website that represents you , your work , your career , yo
 ### CSS Animation libraries:
 - https://animate.style
 - https://www.minimamente.com/project/magic/
+
+
+## Additional Requirement for UNIT PROJECT 2:
+- Make a dashboard for CRUD operations on your models.
+- Dashboard must be in a standalone app "dashboard"
+- Path to the Dashboard: "dashboard/"
+- Use whatever style or layout as needed by your overall style & theme.
+- Add ordering (by date, by name, etc.) as needed.
+- Add search and filtering as needed.
+
+![image](https://github.com/user-attachments/assets/29d7ec2e-6845-41e6-ab1d-b1e6b5d8110e)
