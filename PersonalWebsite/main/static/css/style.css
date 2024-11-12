@@ -1,0 +1,60 @@
+a {
+    color: #000000A6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000;
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+/*** header ***/
+
+.navbar {
+    background-image: linear-gradient(to top, #fff, #ccc);
+    border-bottom: 1px solid #333;
+}
+
+.header-logo {
+    margin: auto 0;
+    padding-right: 0.5rem;
+}
+
+.header-logo img {
+    vertical-align: super;
+}
+
+.header-links-parent {
+    flex-grow: 0;
+}
+
+.header-links-container {
+    margin-left: auto;
+}
+
+
+/*** main ***/
+
+
+
+/*** footer ***/
+footer {
+    background-image: linear-gradient(to bottom, #fff, #ccc);
+    border-top: 1px solid #333;
+    padding: 0.75rem ;
+}
+
+footer > * {
+    margin: 0;
+}
+
+.footer-links-container {
+    margin-left: auto;
+}
+
+.footer-links-container a {
+    padding: 0.5rem;
+}
