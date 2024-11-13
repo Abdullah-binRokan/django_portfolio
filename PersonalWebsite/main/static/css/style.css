@@ -1,3 +1,7 @@
+h3 {
+    color: #02b3e4;
+}
+
 a {
     color: #000000A6;
     text-decoration: none;
@@ -7,28 +11,16 @@ a:hover {
     color: #000;
 }
 
-/* hover affect */
+.btn {
+    background-color: #02b3e4;
+    color: #fff;
+}
+
+/* links hover effect */
 .SMN_effect-14 a {
 	-webkit-transition: color 0.3s;
 	-moz-transition: color 0.3s;
 	transition: color 0.3s;
-}
-
-.SMN_effect-14 a:before {
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	color: transparent;
-	content: '•';
-	text-shadow: 0 0 transparent;
-	font-size: 13pt;
-	-webkit-transition: text-shadow 0.3s, color 0.3s;
-	-moz-transition: text-shadow 0.3s, color 0.3s;
-	transition: text-shadow 0.3s, color 0.3s;
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	transform: translateX(-50%);
-	pointer-events: none;
 }
 
 .SMN_effect-14 a:hover:before, .SMN_effect-14 a:focus:before {
@@ -39,7 +31,13 @@ a:hover {
 .SMN_effect-14 a:hover, .SMN_effect-14 a:focus {
 	color: #02b3e4;
 }
-/* end of hover effect */
+/* end of links hover effect */
+
+/* button effect-1 styles */
+button:hover {
+    color: #ccc !important;
+    background-color: #028fb6 !important;
+}
 
 
 .wrapper {
@@ -72,13 +70,12 @@ a:hover {
 
 /*** main ***/
 
-
-
 /*** footer ***/
 footer {
     background-image: linear-gradient(to bottom, #fff, #ccc);
     border-top: 1px solid #333;
     padding: 0.75rem ;
+    margin-top: 1rem;
 }
 
 footer > * {
