@@ -15,6 +15,12 @@
     border: 1px solid #333;
 }
 
+/* skills */
+.skills-item {
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+}
+
 
 /*** media queries ***/
 @media (max-width: 768px) {

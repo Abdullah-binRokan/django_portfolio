@@ -9,7 +9,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="hero-container container">
+<!-- start of hero section -->
+<section class="hero-container container">
     <div class="row">
         <div class="hero-img col-md-8">
             <img src="{% static 'images/web-design-img.jpg' %}" alt="web-design" />
@@ -26,5 +27,22 @@
             </div>
         </div>
     </div>
-</div>
+</section>
+<!-- start of hero section -->
+ <!-- start of skills section -->
+ <section class="grey-background">
+    <div class="container">
+        <h3>Skills & Expertise</h3>
+        <div class="row">
+            <div class="skills-item col-md-6"><i class="bi bi-window-stack"></i><strong> Front-End Development:</strong> <br />Proficient in HTML, CSS, JavaScript, and React.</div>
+            <div class="skills-item col-md-6"><i class="bi bi-code-square"></i><strong> Back-End Development:</strong> <br />Skilled in Python and Django.</div>
+        </div>
+        <div class="row">
+            <div class="skills-item col-md-6"><i class="bi bi-phone"></i><strong> Mobile Development:</strong> <br />Using React Native to build cross-platform apps.</div>
+            <div class="skills-item col-md-6"><i class="bi bi-aspect-ratio"></i><strong> Responsive Design:</strong> <br />Create mobile-friendly designs using media queries.</div>
+        </div>
+    </div>
+</section>
+<!-- end of skills section -->
+ <section></section>
 {% endblock %}

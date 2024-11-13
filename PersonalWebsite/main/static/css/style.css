@@ -1,3 +1,13 @@
+section {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.grey-background {
+    background-color: #eee;
+}
+
 h3 {
     color: #02b3e4;
 }
