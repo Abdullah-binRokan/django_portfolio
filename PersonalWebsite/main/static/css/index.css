@@ -21,6 +21,35 @@
     padding-bottom: 1rem;
 }
 
+/* featured projects */
+.projects-cards {
+    overflow: hidden;
+    
+}
+
+.projects-cards img {
+    object-fit: cover;
+    width: 100%;
+    min-height: 100%;
+    border: 1px solid #333;
+}
+
+.projects-cards h5 {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+/* modal */
+.modal-header h1 {
+    color: #02b3e4;
+}
+
+.modal-img img {
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    border: 1px solid #333;
+}
 
 /*** media queries ***/
 @media (max-width: 768px) {
