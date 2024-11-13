@@ -7,12 +7,46 @@ a:hover {
     color: #000;
 }
 
+/* hover affect */
+.SMN_effect-14 a {
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.SMN_effect-14 a:before {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	color: transparent;
+	content: '•';
+	text-shadow: 0 0 transparent;
+	font-size: 13pt;
+	-webkit-transition: text-shadow 0.3s, color 0.3s;
+	-moz-transition: text-shadow 0.3s, color 0.3s;
+	transition: text-shadow 0.3s, color 0.3s;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	transform: translateX(-50%);
+	pointer-events: none;
+}
+
+.SMN_effect-14 a:hover:before, .SMN_effect-14 a:focus:before {
+	color: #fff;
+	text-shadow: 10px 0 #fff, -10px 0 #fff;
+}
+
+.SMN_effect-14 a:hover, .SMN_effect-14 a:focus {
+	color: #02b3e4;
+}
+/* end of hover effect */
+
+
 .wrapper {
     min-height: 100vh;
 }
 
 /*** header ***/
-
 .navbar {
     background-image: linear-gradient(to top, #fff, #ccc);
     border-bottom: 1px solid #333;
@@ -57,4 +91,23 @@ footer > * {
 
 .footer-links-container a {
     padding: 0.5rem;
+}
+
+
+/*** media queries ***/
+@media (max-width: 560px) {
+    footer {
+        flex-direction: column;
+    }
+
+    .footer-text {
+        order: 2;
+        padding-top: 0.5rem;
+        margin: 0 auto;
+    }
+
+    .footer-links-container {
+        order: 1;
+        margin: 0 auto;
+    }
 }
