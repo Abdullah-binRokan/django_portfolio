@@ -1,0 +1,22 @@
+.toolkit-item {
+    padding: 0 1rem 1rem 1rem;
+}
+
+.toolkit-img {
+    overflow: hidden;
+    margin: auto;
+    width: 100px;
+    height: 120px;
+}
+
+.toolkit-img img {
+    object-fit: contain;
+    display: inline-block;
+    margin: auto;
+    max-width: 100%;
+    min-height: 100%;
+}
+
+.toolkit-item h5 {
+    text-align: center;
+}
