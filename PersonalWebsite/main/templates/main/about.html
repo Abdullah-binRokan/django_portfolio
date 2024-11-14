@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Abdullah bin Rokan | About{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- start of hero section -->
+<section class="hero-container container">
+    <div class="row">
+        <div class="hero-img col-md-8">
+            <img src="{% static 'images/pexels-branches.jpg' %}" alt="decorative image" />
+        </div>
+        <div class="hero-content d-flex flex-column justify-content-evenly col-md-4">
+            <div>
+                <h3>About Me</h3>
+                <p>My name is Abdullah I enjoy coding and problem solving. With a strong foundation in web development, I have completed the Front-End and React Developer Nanodegrees from MISK Academy and the Tuwaiq Python Bootcamp.</p>
+            </div>
+            <div>
+                <h3>Commitment to Excellence</h3>
+                <p>I am committed to continuous learning and consistently strive to apply best practices in my work to deliver efficient, scalable solutions. I am passionate about expanding my skills to become a well-rounded full-stack developer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of hero section -->
+{% endblock %}

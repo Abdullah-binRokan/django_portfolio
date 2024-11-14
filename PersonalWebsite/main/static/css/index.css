@@ -1,20 +1,4 @@
 /*** main ***/
-/* hero */
-.hero-container {
-    margin-top: 1rem;
-}
-
-.hero-img {
-    overflow: hidden;
-}
-
-.hero-img img {
-    object-fit: cover;
-    min-height: 100%;
-    width: 100%;
-    border: 1px solid #333;
-}
-
 /* skills */
 .skills-item {
     padding-right: 3rem;
@@ -52,8 +36,3 @@
 }
 
 /*** media queries ***/
-@media (max-width: 768px) {
-    .hero-content {
-        margin-top: 1rem;
-    }
-}
