@@ -5,6 +5,15 @@
     padding-bottom: 1rem;
 }
 
+.skills-item {
+    text-align: center;
+}
+
+.skills-item i {
+    font-size: 2rem;
+    color: #02b3e4;
+}
+
 /* featured projects */
 .projects-cards {
     overflow: hidden;
