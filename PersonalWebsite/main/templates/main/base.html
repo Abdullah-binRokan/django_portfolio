@@ -15,7 +15,7 @@
         <header class="">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid SMN_effect-14">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{% url 'main:home_view' %}">
                         <div class="header-logo-container d-flex">
                             <div class="header-logo d-inline-block align-text-top">
                                 <img src="{% static 'images/ar-logo.png' %}" alt="Logo" width="50" height="56">
@@ -32,13 +32,13 @@
                     <div class="header-links-parent collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="header-links-container SMN_effect-14 navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link {% if request.resolver_match.url_name == 'home_view' %}active{% endif %}" aria-current="page" href="{% url 'main:home_view' %}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link {%if request.resolver_match.url_name == 'about_view' %}active{% endif %}" href="{% url 'main:about_view' %}">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
+                                <a class="nav-link {%if request.resolver_match.url_name == 'contact_view' %}active{% endif %}" href="{% url 'main:contact_view' %}">Contact</a>
                             </li>
                         </ul>
                   </div>

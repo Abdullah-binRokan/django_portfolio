@@ -55,6 +55,10 @@ button:hover {
 }
 
 /*** header ***/
+.nav-link.active {
+    font-weight: 800;
+}
+
 .navbar {
     background-image: linear-gradient(to top, #fff, #ccc);
     border-bottom: 1px solid #333;
