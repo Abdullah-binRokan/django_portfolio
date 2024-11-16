@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Abdullah bin Rokan | Contact{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- start of contact details section -->
+ <section>
+    <div class="container">
+        <h3>Contact Details</h3>
+    </div>
+ </section>
+<!-- end of contact details section -->
+<!-- start of form section -->
+<section class="container">
+    <h3>Contact Form</h3>
+    <form action="{% url 'main:contact_view' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div>
+                <label class="form-label" for="name">name</label>
+                <input class="form-control" type="name" name="name" placeholder="Ahmed Nasser" required />
+            </div>
+            <div>
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" type="email" name="email" placeholder="name@example.com" required />
+            </div>
+            <div>
+                <label class="form-label" for="message">Message</label>
+                <textarea class="form-control" name="message" id="message" placeholder="Enter your message here"></textarea>
+            </div>
+            <div>
+                <button class="btn btn-transparent">Submit</button>
+            </div>
+        </div>
+    </form>
+</section>
+<!-- end of form section -->
+{% endblock %}

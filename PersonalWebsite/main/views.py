@@ -10,3 +10,8 @@ def home_view(request: HttpRequest):
 def about_view(request: HttpRequest):
 
     return render(request, "main/about.html")
+
+
+def contact_view(request: HttpRequest):
+
+    return render(request, "main/contact.html")
