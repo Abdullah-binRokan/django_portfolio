@@ -1,3 +1,22 @@
+/*** main ***/
+/* contact details */
+.details-container {
+    height: 100%;
+}
+
+/* form */
 .form-control {
     margin-bottom: 1rem;
+}
+
+textarea {
+    height: 6rem;
+}
+
+
+/*** media queries ***/
+@media (max-width: 768px) {
+    .contact-form-container {
+        margin-top: 1rem;
+    }
 }
