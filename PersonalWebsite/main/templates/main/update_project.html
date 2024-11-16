@@ -5,7 +5,7 @@
 {% block title %}Abdullah bin Rokan | Add project{% endblock %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/add_project.css' %}">
+<link rel="stylesheet" href="{% static 'css/update_project.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -22,31 +22,33 @@
             setTimeout(function() {
                 window.location.href = "{% url 'main:home_view' %}";
             }, 5000)
-        </script>        
+        </script>            
     </div>
     {% endif %}
     <div class="row">
         <!-- start of form section -->
         <section class="contact-form-container container col-md-6">
-            <h3>Add a Project</h3>
-            <form action="{% url 'main:add_project_view' %}" method="post" enctype="multipart/form-data">
+            <h3>Update Project</h3>
+            <form action="{% url 'main:update_project_view' project.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="row">
                     <div>
                         <label class="form-label" for="name">Project Name</label>
-                        <input class="form-control" type="text" name="name" placeholder="Enter project name" required />
+                        <input class="form-control" type="text" name="name" value="{{ project.name }}" required />
                     </div>
                     <div>
                         <label class="form-label" for="description">Description</label>
-                        <textarea class="form-control" name="description" id="description" placeholder="Enter project description" required></textarea>
+                        <textarea class="form-control" name="description" id="description" required>{{ project.description }}</textarea>
                     </div>
                     <div>
                         <label class="form-label" for="image">Image</label>
-                        <input class="form-control" type="file" name="image" id="image" accept="image/*" required>
+                        <div class="img-container"><img src="{{ project.image.url }}" alt="{{ project.name }}"></div>
+                        <input class="form-control" type="file" name="image" id="image" accept="image/*">
                     </div>
                     <div>
                         <label class="form-label" for="details_image">Details Image</label>
-                        <input class="form-control" type="file" name="details_image" id="details_image" accept="image/*" required>
+                        <div class="img-container"><img src="{{ project.details_image.url }}" alt="{{ project.name }}"></div>
+                        <input class="form-control" type="file" name="details_image" id="details_image" accept="image/*">
                     </div>
                     <div>
                         <button class="btn btn-transparent">Submit</button>

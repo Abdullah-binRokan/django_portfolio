@@ -61,45 +61,28 @@
     <div class="container">
         <h3>Featured Projects</h3>
         <div class="row">
+            {% for project in projects %}
             <div class="col-12 col-md-6 col-lg-4">
-                <!-- link trigger modal-1 -->
+                <!-- link trigger modal -->
                 <div class="projects-cards SMN_effect-14">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-1">
-                        <img src="{% static 'images/projects/flash-cards.jpg' %}" alt="">
-                        <h5>test</h5>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ project.id }}">
+                        <img src="{{ project.image.url }}" alt="{{ project.name }}">
+                        <h5>{{ project.name }}</h5>
                     </a>
                 </div>
             </div> <!-- endo of col-->
-            <div class="col-12 col-md-6 col-lg-4">
-                <!-- link trigger modal-2 -->
-                <div class="projects-cards SMN_effect-14">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-2">
-                        <img src="{% static 'images/projects/flash-cards.jpg' %}" alt="">
-                        <h5>test</h5>
-                    </a>
-                </div>
-            </div> <!-- endo of col-->
-            <div class="col-12 col-md-6 col-lg-4">
-                <!-- link trigger modal-3 -->
-                <div class="projects-cards SMN_effect-14">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal-3">
-                        <img src="{% static 'images/projects/flash-cards.jpg' %}" alt="">
-                        <h5>test</h5>
-                    </a>
-                </div>
-            </div> <!-- endo of col-->
-            <!-- start of Modal-1 -->
-            <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel-1" aria-hidden="true">
+            <!-- start of Modal -->
+            <div class="modal fade" id="modal-{{ project.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ project.id }}" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal-1 title</h1>
+                            <h1 class="modal-title fs-5" id="ModalLabel-{{ project.id }}">{{ project.name }}</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <p>this is modal-1 body</p>
+                            <p>{{ project.description }}</p>
                             <div class="modal-img">
-                                <img src="{% static 'images/projects/flash-cards.gif' %}" alt="">
+                                <img src="{{ project.details_image.url }}" alt="{{ project.name }}">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -108,43 +91,8 @@
                     </div>
                 </div>
             </div>
-            <!-- end of Modal-1 -->
-            <!-- start of Modal-2 -->
-            <div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel-2" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal-2 title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>this is modal-2 body</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-transparent" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end of Modal-2 -->
-            <!-- start of Modal-3 -->
-            <div class="modal fade" id="exampleModal-3" tabindex="-1" aria-labelledby="exampleModalLabel-3" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal-3 title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>this is modal-3 body</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-transparent" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end of Modal-3 -->
+            <!-- end of Modal -->
+             {% endfor %}
         </div> <!-- end of row-->
     </div> <!-- end of container div -->
 </section>
