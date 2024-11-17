@@ -50,12 +50,12 @@ def dashboard_posts_view(request: HttpRequest):
         # get the value of "order_by"
         order_by = request.GET.get("order_by")
         if order_by == "name":
-            posts = posts.order_by("name")
+            posts = posts.order_by("title")
         elif order_by == "submitted_at":
             posts = posts.order_by("-submitted_at")
 
     # sort based on search
     if "search" in request.GET and len(request.GET["search"]) >= 1:
-        posts = posts.filter(name__contains = request.GET["search"])
+        posts = posts.filter(title__contains = request.GET["search"])
 
     return render(request, "dashboard/posts.html", {"posts": posts})
