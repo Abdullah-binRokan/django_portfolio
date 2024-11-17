@@ -1,0 +1,121 @@
+a {
+    color: #000000A6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000;
+}
+
+.btn {
+    background-color: #02b3e4;
+    color: #fff;
+}
+
+/* links hover effect */
+.SMN_effect-14 a {
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.SMN_effect-14 a:hover:before, .SMN_effect-14 a:focus:before {
+	color: #fff;
+	text-shadow: 10px 0 #fff, -10px 0 #fff;
+}
+
+.SMN_effect-14 a:hover, .SMN_effect-14 a:focus {
+	color: #02b3e4;
+}
+/* end of links hover effect */
+
+/* button effect-1 styles */
+button:hover {
+    color: #ccc !important;
+    background-color: #028fb6 !important;
+}
+
+
+/*** aside ***/
+aside {
+    background-color: #ccc;
+    min-height: 100vh;
+    width: 20vh;
+    padding-top: 3rem;
+}
+
+aside div {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+/*** main container ***/
+/* header */
+header {
+    padding-top: 1rem;
+}
+
+/* main */
+main {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table th {
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+table tr {
+    border-bottom: 1px solid #ccc;
+}
+
+td img {
+    height: 30px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+
+/* modal */
+.modal-header h1 {
+    color: #02b3e4;
+}
+
+.modal-img img {
+    width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    border: 1px solid #333;
+}
+
+
+/*** media queries ***/
+@media (max-width: 800px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    form {
+        margin-bottom: 0.8rem;
+    }
+
+    aside {
+        display: flex;
+        min-height: 8vh;
+        width: 100%;
+    }
+
+    td.SMN_effect-14 {
+        display: flex;
+        flex-direction: column;
+    }
+    td.SMN_effect-14 a {
+        margin-bottom: 0.8rem;
+    }
+}

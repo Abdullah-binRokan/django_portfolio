@@ -1,0 +1,50 @@
+{% extends 'dashboard/base.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+<!-- start of messages section -->
+ <section>
+    <table>
+        <th>Name</th>
+        <th>message</th>
+        <th>Date</th>
+        <th>Action</th>
+        {% for message in messages %}
+        <tr>
+            <td>{{ message.name }}</td>
+            <td>{{ message.message|truncatechars:10 }}</td>
+            <td>{{ message.submitted_at|truncatechars:17 }}</td>
+            <td class="SMN_effect-14">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ message.id }}"><i class="bi bi-eye-fill"></i></a>
+                <a href="{% url 'main:delete_contact_msg_view' message.id %}"><i class="bi bi-trash-fill"></i></a>
+            </td>
+        </tr>
+        <!-- start of Modal -->
+        <div class="modal fade" id="modal-{{ message.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ message.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="ModalLabel-{{ message.id }}">{{ message.name }}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ message.message }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-transparent" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of Modal -->
+        {% endfor %}
+    </table>
+ </section>
+<!-- end of messages section -->
+{% endblock %}

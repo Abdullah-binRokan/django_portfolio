@@ -24,6 +24,21 @@
         <!-- end of contact details section -->
         <!-- start of form section -->
         <section class="contact-form-container container col-md-6">
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                <p>You will be redirected to the home page shortly</p>
+                <script>
+                    setTimeout(function() {
+                        window.location.href = "{% url 'main:home_view' %}";
+                    }, 5000)
+                </script>        
+            </div>
+            {% endif %}
             <h3>Contact Form</h3>
             <form action="{% url 'main:contact_view' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}

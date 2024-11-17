@@ -1,0 +1,60 @@
+{% extends 'dashboard/base.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="d-flex gap-2 justify-content-end">
+    <p><a href="{% url 'main:add_project_view' %}"><button class="btn btn-transparent">Add a new project</button></a></p>
+</div>
+<!-- start of projects section -->
+ <section>
+    <table>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Action</th>
+        {% for project in projects %}
+        <tr>
+            <td><img src="{{project.image.url}}" alt=""></td>
+            <td>{{ project.name }}</td>
+            <td>{{ project.description|truncatechars:10 }}</td>
+            <td>{{ project.submitted_at|truncatechars:17 }}</td>
+            <td class="SMN_effect-14">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ project.id }}"><i class="bi bi-eye-fill"></i></a>
+                <a href="{% url 'main:update_project_view' project.id %}"><i class="bi bi-pencil-square"></i></a>
+                <a href="{% url 'main:delete_project_view' project.id %}"><i class="bi bi-trash-fill"></i></a>
+            </td>
+        </tr>
+        <!-- start of Modal -->
+        <div class="modal fade" id="modal-{{ project.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ project.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="ModalLabel-{{ project.id }}">{{ project.name }}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ project.description }}</p>
+                        <div class="modal-img">
+                            <img src="{{ project.details_image.url }}" alt="{{ project.name }}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-transparent" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of Modal -->
+        {% endfor %}
+    </table>
+ </section>
+<!-- end of projects section -->
+{% endblock %}

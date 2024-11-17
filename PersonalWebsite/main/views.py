@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
-from .models import Project
-from .forms import ProjectForm
+from .models import Project, ContactMessage
+from .forms import ProjectForm, ContactMessageForm
 from django.contrib import messages
 
 # Create your views here.
@@ -17,8 +17,27 @@ def about_view(request: HttpRequest):
 
 
 def contact_view(request: HttpRequest):
+    # using django ModelForm
+    if request.method == "POST":
+        message_form = ContactMessageForm(request.POST)
+        if message_form.is_valid():
+            message_form.save()
+            messages.success(request, "Message added successfuly!")
+        else:
+            messages.error(request, "There was an error. Please try again.")
 
     return render(request, "main/contact.html")
+
+
+def delete_contact_msg_view(request: HttpRequest, contact_msg_id: int):
+    try:
+        contact_message = ContactMessage.objects.get(pk = contact_msg_id)
+        contact_message.delete()
+
+    except:
+        return redirect("dashboard:dashboard_messages_view")
+
+    return render(request, "dashboard/messages.html")
 
 
 def add_project_view(request: HttpRequest):
@@ -65,6 +84,6 @@ def delete_project_view(request: HttpRequest, project_id):
         project.delete()
 
     except:
-        return redirect("main:home_view")
+        return redirect("dashboard:dashboard_projects_view")
 
-    return render(request, "main/index.html")
+    return render(request, "dashboard/projects.html")

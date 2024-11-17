@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    {% block style %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="wrapper d-flex SMN_effect-14">
+        <aside>
+            <div><a href="{% url 'dashboard:dashboard_projects_view' %}">Projects</a></div>
+            <div><a href="{% url 'dashboard:dashboard_messages_view' %}">Messages</a></div>
+        </aside>
+        <div class="main-container container d-flex flex-column justify-content-evenly">
+            <header>
+                <h1>Dashboard</h1>
+            </header>
+            <div class="order-container">
+                <form class="d-flex gap-2 justify-content-end" action="" method="get">
+                    <select name="order_by" id="order_by">
+                        <option value="">Select Order by</option>
+                        <option value="submitted_at" {% if request.GET.order_by == 'submitted_at' %}selected{% endif %}>Order by date</option>
+                        <option value="name" {% if request.GET.order_by == 'name' %}selected{% endif %}>Order by name</option>
+                    </select>
+                    <button class="btn btn-transparent">Submit</button>
+                </form>
+            </div>
+            <div>
+                <form class="d-flex gap-2 justify-content-end" action="" method="get">
+                    <input type="text" name="search" placeholder="Enter a keyword" />
+                    <button class="btn btn-transparent" type="submit" value="Search">Search</button>
+                </form>
+            </div>
+            <main>
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+    </div> <!-- end of wrapper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
