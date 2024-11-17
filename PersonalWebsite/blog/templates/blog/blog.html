@@ -1,0 +1,100 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Abdullah bin Rokan | Full Stack Web Developer{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- end of hero section -->
+<section class="hero-container container">
+    <div class="row">
+        <div class="hero-img col-md-8">
+            <img src="{% static 'images/pexels-hero4.jpg' %}" alt="stars" />
+        </div>
+        <div class="hero-content d-flex flex-column justify-content-evenly col-md-4">
+            <div>
+                <h3>Stars Blog</h3>
+                <p>Welcome to Stars Blog, are you curious about finding your way using the stars</p>
+            </div>
+            <div>
+                <h3>Navigate Through the Star</h3>
+                <p>For centuries, the stars and the sun have been humanity’s compass, helping travelers find their way long before modern tools existed</p>
+                <!-- <div><a href="{% url 'main:contact_view' %}"><button class="btn btn-transparent">Contact me</button></a></div> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- start of hero section -->
+<!-- start of learn section -->
+<section class="grey-background">
+    <div class="container">
+        <h3>On our blog, we will learn together:</h3>
+        <div class="row">
+            <div class="skills-item col-md-6">
+                <i class="bi bi-star-fill"></i>
+                <p><strong> North Star</strong><br />How to locate the North Star (Polaris) to determine direction.</p>
+            </div>
+            <div class="skills-item col-md-6">
+                <i class="bi bi-brightness-high-fill"></i>
+                <p><strong> The Sun</strong><br />The sun's position during sunrise and sunset as a natural directional guide.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="skills-item col-md-6">
+                <i class="bi bi-moon-stars-fill"></i>
+                <p><strong> The Moon</strong><br />The moon has been an essential guide for navigation and timekeeping throughout history.</p>
+            </div>
+            <div class="skills-item col-md-6">
+                <i class="bi bi-phone-flip"></i>
+                <p><strong>Mobile Apps</strong><br />Practical tips on using star charts and mobile apps to enhance your navigation skills.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of learn section -->
+<!-- start of blogs -->
+<section>
+    <div class="container">
+        <h3>Blog Posts</h3>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <!-- link trigger modal -->
+                <div class="posts-cards SMN_effect-14">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ post.id }}">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        <h5>{{ post.title }}</h5>
+                    </a>
+                </div>
+            </div> <!-- endo of col-->
+            <!-- start of Modal -->
+            <div class="modal fade" id="modal-{{ post.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ post.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="ModalLabel-{{ post.id }}">{{ post.title }}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ post.description }}</p>
+                            <div class="modal-img">
+                                <img src="{{ post.details_image.url }}" alt="{{ post.name }}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-transparent" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of Modal -->
+             {% endfor %}
+        </div> <!-- end of row-->
+    </div> <!-- end of container div -->
+</section>
+<!-- end of posts -->
+{% endblock %}

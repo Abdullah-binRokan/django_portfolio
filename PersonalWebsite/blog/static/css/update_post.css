@@ -1,0 +1,30 @@
+/*** main ***/
+.alert {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    color: white;
+}
+
+.alert.success {
+    background-color: green;
+}
+
+.alert.error {
+    background-color: red;
+}
+
+/* form */
+.form-control {
+    margin-bottom: 1rem;
+}
+
+textarea {
+    height: 6rem;
+}
+
+.img-container img {
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}

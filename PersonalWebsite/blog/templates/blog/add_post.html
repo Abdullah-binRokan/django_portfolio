@@ -1,0 +1,60 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Add Post{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/add_post.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <p>You will be redirected to the blog page shortly</p>
+        <script>
+            setTimeout(function() {
+                window.location.href = "{% url 'blog:blog_view' %}";
+            }, 5000)
+        </script>        
+    </div>
+    {% endif %}
+    <div class="row">
+        <!-- start of form section -->
+        <section class="contact-form-container container col-md-6">
+            <h3>Add a new post</h3>
+            <form action="{% url 'blog:add_post_view' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div>
+                        <label class="form-label" for="title">Post title</label>
+                        <input class="form-control" type="text" name="title" placeholder="Enter post title" required />
+                    </div>
+                    <div>
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" name="description" id="description" placeholder="Enter post description" required></textarea>
+                    </div>
+                    <div>
+                        <label class="form-label" for="image">Image</label>
+                        <input class="form-control" type="file" name="image" id="image" accept="image/*" required>
+                    </div>
+                    <div>
+                        <label class="form-label" for="details_image">Details Image</label>
+                        <input class="form-control" type="file" name="details_image" id="details_image" accept="image/*" required>
+                    </div>
+                    <div>
+                        <button class="btn btn-transparent">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- end of form section -->
+    </div>
+</div>
+{% endblock %}

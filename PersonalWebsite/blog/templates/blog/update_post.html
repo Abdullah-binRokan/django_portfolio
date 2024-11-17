@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Update post{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/update_post.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <p>You will be redirected to the home page shortly</p>
+        <script>
+            setTimeout(function() {
+                window.location.href = "{% url 'blog:blog_view' %}";
+            }, 5000)
+        </script>            
+    </div>
+    {% endif %}
+    <div class="row">
+        <!-- start of form section -->
+        <section class="contact-form-container container col-md-6">
+            <h3>Update post</h3>
+            <form action="{% url 'blog:update_post_view' post.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div>
+                        <label class="form-label" for="title">Post title</label>
+                        <input class="form-control" type="text" name="title" value="{{ post.title }}" required />
+                    </div>
+                    <div>
+                        <label class="form-label" for="description">Description</label>
+                        <textarea class="form-control" name="description" id="description" required>{{ post.description }}</textarea>
+                    </div>
+                    <div>
+                        <label class="form-label" for="image">Image</label>
+                        <div class="img-container"><img src="{{ post.image.url }}" alt="{{ post.name }}"></div>
+                        <input class="form-control" type="file" name="image" id="image" accept="image/*">
+                    </div>
+                    <div>
+                        <label class="form-label" for="details_image">Details Image</label>
+                        <div class="img-container"><img src="{{ post.details_image.url }}" alt="{{ post.name }}"></div>
+                        <input class="form-control" type="file" name="details_image" id="details_image" accept="image/*">
+                    </div>
+                    <div>
+                        <button class="btn btn-transparent">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- end of form section -->
+    </div>
+</div>
+{% endblock %}

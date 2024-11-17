@@ -1,0 +1,60 @@
+{% extends 'dashboard/base.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="d-flex gap-2 justify-content-end">
+    <p><a href="{% url 'blog:add_post_view' %}"><button class="btn btn-transparent">Add a new post</button></a></p>
+</div>
+<!-- start of posts section -->
+ <section>
+    <table>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Action</th>
+        {% for post in posts %}
+        <tr>
+            <td><img src="{{post.image.url}}" alt=""></td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.description|truncatechars:10 }}</td>
+            <td>{{ post.submitted_at|truncatechars:17 }}</td>
+            <td class="SMN_effect-14">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ post.id }}"><i class="bi bi-eye-fill"></i></a>
+                <a href="{% url 'blog:update_post_view' post.id %}"><i class="bi bi-pencil-square"></i></a>
+                <a href="{% url 'blog:delete_post_view' post.id %}"><i class="bi bi-trash-fill"></i></a>
+            </td>
+        </tr>
+        <!-- start of Modal -->
+        <div class="modal fade" id="modal-{{ post.id }}" tabindex="-1" aria-labelledby="modalLabel-{{ post.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="ModalLabel-{{ post.id }}">{{ post.title }}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ post.description }}</p>
+                        <div class="modal-img">
+                            <img src="{{ post.details_image.url }}" alt="{{ post.title }}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-transparent" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of Modal -->
+        {% endfor %}
+    </table>
+ </section>
+<!-- end of posts section -->
+{% endblock %}

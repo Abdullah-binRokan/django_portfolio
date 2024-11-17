@@ -38,6 +38,9 @@
                                 <a class="nav-link {%if request.resolver_match.url_name == 'about_view' %}active{% endif %}" href="{% url 'main:about_view' %}">About</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link {%if request.resolver_match.url_name == 'blog_view' %}active{% endif %}" href="{% url 'blog:blog_view' %}">Stars Blog</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link {%if request.resolver_match.url_name == 'contact_view' %}active{% endif %}" href="{% url 'main:contact_view' %}">Contact</a>
                             </li>
                         </ul>
